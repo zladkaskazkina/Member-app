@@ -24,6 +24,7 @@ const routes = [
     path: "/members/:id",
     name: "Member",
     component: Member,
+    props:true,
     children: [
       { path: "contact",
         component: Contact}
