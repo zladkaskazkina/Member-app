@@ -7,6 +7,19 @@ export default {
       location: data.loc,
       areas: data.areas
     };
-    context.commit('registration', memberData);
+    fetch(`https://mentor-app-563e1-default-rtdb.firebaseio.com/members.json`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(memberData)
+    }).then((response) => {
+      response.json();
+    }).then((data)=>{
+      console.log(data);
+    });
+    context.commit('registration', {
+      ...memberData
+    });
   }
 };
