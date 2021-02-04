@@ -40,7 +40,11 @@
         <p v-if="!areas.isValid">Please choose at least one area of your experties</p>
       </div>
       <p v-if="!formIsValid">Please check your invalid inputs and submit form again</p>
-      <base-button>Register</base-button>
+      <div class="actions">
+        <base-button>Register</base-button>
+        <base-button link mode="outline" to="/members">See all members</base-button>
+      </div>
+      
     </form>
   </div>
 </template>
@@ -102,11 +106,11 @@ export default {
         return;
       }
       const formData = {
-        first: this.firstName,
-        last: this.lastName,
-        desc: this.description,
-        loc: this.location,
-        areas: this.areas
+        first: this.firstName.value,
+        last: this.lastName.value,
+        desc: this.description.value,
+        loc: this.location.value,
+        areas: this.areas.value
       };
       this.$emit('save-data', formData);
       console.log(formData);
@@ -130,6 +134,21 @@ textarea {
   width: 100%;
   border: 1px solid #ccc;
 }
+span {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+span label {
+  font-weight: normal;
+  margin-bottom: 3px;
+  margin-right: 1rem;
+
+}
+input[type='checkbox']{
+  display: inline-block;
+  width: auto;
+}
 h3 {
   margin: 0.5rem 0;
   font-size: 1rem;
@@ -140,5 +159,11 @@ h3 {
 .invalid input,
 .invalid textarea {
   border: 1px solid red;
+}
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
 }
 </style>
