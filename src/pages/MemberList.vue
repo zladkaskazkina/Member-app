@@ -1,6 +1,5 @@
 <template>
 <div>
-  <section>FILTER</section>
   <section>
     <base-card>
     <ul v-if="hasMembers">
@@ -14,7 +13,7 @@
         :country="member.country">
         </member-item>
     </ul>
-    <div v-else>
+    <div class="else" v-else>
       <h3>No memebers yet. Be the first one!</h3>
       <base-button link to="/register">Register now!</base-button>
     </div>
@@ -36,6 +35,14 @@
       hasMembers() {
         return this.$store.getters['members/hasMembers']
       }
+    },
+    created() {
+      this.loadMembers();
+    },
+    methods: {
+      loadMembers() {
+        this.$store.dispatch('members/loadMembers');
+      }
     }
 
   }
@@ -46,5 +53,14 @@
     margin: 0;
     padding: 0;
   }
-
+  .else {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1rem;
+  }
+  .else h3 {
+    margin-bottom: 3rem;
+  }
 </style>

@@ -13,12 +13,17 @@
         <p> {{ description }} </p>
       </base-card>
     </section>
-    <section>
+    <!-- <section class="action">
       <base-card>
         <base-button link :to="contactLink"> Contact </base-button>
         <router-view></router-view>
       </base-card>
-    </section>
+    </section> -->
+    <section class="action">
+      <base-card>
+        <base-button link to="/members"> See other members </base-button>
+      </base-card>
+    </section> 
     
   </div> 
 </template>
@@ -54,3 +59,6 @@ export default {
 
 }
 </script>
+<style scoped>
+
+</style>

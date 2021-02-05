@@ -3,22 +3,22 @@
     <form @submit.prevent="submitForm">
       <div class="form-control" :class="{ invalid: !firstName.isValid }">
         <label for="firstname">Firstname</label>
-        <input type="text" id="firstname" v-model.trim="firstName.value">
+        <input type="text" id="firstname" v-model.trim="firstName.value" @blur="clearValidation('firstName')">
         <p v-if="!firstName.isValid">Firstname is empty</p>
       </div>
       <div class="form-control" :class="{ invalid: !lastName.isValid }">
         <label for="lastname">Lastname</label>
-        <input type="text" id="lastname" v-model.trim="lastName.value">
+        <input type="text" id="lastname" v-model.trim="lastName.value" @blur="clearValidation('lastName')">
         <p v-if="!lastName.isValid">Lastname is empty</p>
       </div>
       <div class="form-control" :class="{ invalid: !location.isValid }">
         <label for="location">Location</label>
-        <input type="text" id="location" v-model.trim="location.value">
+        <input type="text" id="location" v-model.trim="location.value" @blur="clearValidation('location')">
         <p v-if="!location.isValid">Location is empty</p>
       </div>
       <div class="form-control" :class="{ invalid: !description.isValid }">
         <label for="description">Description</label>
-        <textarea rows="5" id="description" v-model="description.value"></textarea>
+        <textarea rows="5" id="description" v-model="description.value" @blur="clearValidation('description')"></textarea>
         <p v-if="!description.isValid">Description is empty</p>
       </div>
       <div class="form-control" :class="{ invalid: !areas.isValid }">
@@ -26,15 +26,15 @@
         <div>
           <span>
             <label for="web">Web-development</label>
-            <input type="checkbox" value="web" id="web" v-model="areas.value">
+            <input type="checkbox" value="web" id="web" v-model="areas.value" @blur="clearValidation('areas')">
           </span>
           <span>
             <label for="marketing">Marketing</label>
-            <input type="checkbox" value="marketing" id="marketing" v-model="areas.value">
+            <input type="checkbox" value="marketing" id="marketing" v-model="areas.value" @blur="clearValidation('areas')">
           </span>
           <span>
             <label for="sales">Sales</label>
-            <input type="checkbox" value="sales" id="sales" v-model="areas.value">
+            <input type="checkbox" value="sales" id="sales" v-model="areas.value" @blur="clearValidation('areas')">
           </span>
         </div>
         <p v-if="!areas.isValid">Please choose at least one area of your experties</p>
@@ -77,6 +77,9 @@ export default {
     }
   },
   methods: {
+    clearValidation(input){
+      this[input].isValid = true;
+    },
     validateForm() {
       this.formIsValid = true;
       if(this.firstName.value === '') {

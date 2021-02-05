@@ -35,7 +35,7 @@ export default {
   a {
     text-decoration: none;
     font:inherit;
-    padding: 0.75rem 1rem;
+    padding: 0.5rem 1rem;
     border: 1px solid darkcyan;
     background-color: darkslategrey;
     color: whitesmoke;

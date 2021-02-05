@@ -1,11 +1,16 @@
 <template>
   <div>
     <li>
-      <h3> {{ fullName }}</h3>
-      <h4> {{ country }} </h4>
+      <div class="avatar">
+        <base-avatar :firstname="firstName" :lastname="lastName"></base-avatar>
+        <div>
+          <h3> {{ fullName }}</h3>
+          <h4> {{ country }} </h4>
+        </div>
+      </div>
       <div> <base-badge v-for="area in areas" :key="area" :title="area" :type="area"></base-badge> </div>
       <div class="actions">
-        <base-button link mode="outline" :to="memberContactLink"> Contact </base-button>
+        <!-- <base-button link mode="outline" :to="memberContactLink"> Contact </base-button> -->
         <base-button link :to="memberDetailLink"> View details </base-button>
       </div>
     </li>
@@ -58,5 +63,9 @@ h4 {
 .actions {
   display: flex;
   justify-content: center;
+  margin-top: 2rem;
+}
+.avatar {
+  display: flex;
 }
 </style>

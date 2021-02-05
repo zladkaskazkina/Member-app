@@ -21,5 +21,28 @@ export default {
     context.commit('registration', {
       ...memberData
     });
+  },
+
+  loadMembers(context){
+    fetch('https://mentor-app-563e1-default-rtdb.firebaseio.com/members.json').then((response) => {
+      if(response.ok) {
+       return response.json();
+      }
+    }).then((data) => { 
+      const members = [];
+      for (const key in data){
+        const member = {
+          id:key,
+          firstName: data[key].firstName,
+          lastName: data[key].lastName,
+          description: data[key].description,
+          location: data[key].location,
+          areas: data[key].areas
+        };
+        members.push(member);
+      }
+      context.commit('setMembers', members);
+    });
+
   }
 };

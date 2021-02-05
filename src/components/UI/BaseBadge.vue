@@ -30,17 +30,20 @@ export default {
   .badge {
     background-color: whitesmoke;
     color: black;
-    border-radius: 30px;
-    padding: 0.5rem 1.5rem;
+    padding: 0.3rem 1rem;
     display: inline-block;
     margin-right: 0.5rem;
   }
   .marketing {
-    background-color: firebrick;
+    background-color: rgb(78, 172, 172);
     color: whitesmoke;
   }
   .web {
-    background-color: blueviolet;
+    background-color: rgb(93, 141, 141);
+    color: whitesmoke;
+  }
+  .sales {
+    background-color: rgb(37, 46, 46);
     color: whitesmoke;
   }
 </style>
