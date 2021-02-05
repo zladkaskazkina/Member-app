@@ -22,7 +22,7 @@ npm run lint
 
 ## About app
 This app is used for user registration to membership in private organisation 'Be Family' (fictional organisation for study purpose).
-For frontend I used Vue.js with Vuex a Vue Router. For database and Rest Api backend I used Realtime Database from Firebase. For simple avavtar i used 3rd party Api https://eu.ui-avatars.com/ 
+For frontend I used Vue.js with Vuex a Vue Router. For database and Rest Api backend I used Realtime Database from Firebase. For simple avatar i used 3rd party Api https://eu.ui-avatars.com/ 
 
 On the home page user have two possibilities: 
 1. click on button 'Become a member' and go to registration page, or 
